@@ -51,4 +51,12 @@ ALTER TABLE urunler ADD CONSTRAINT urunler_uretici_id_fkey FOREIGN KEY (uretici_
 INSERT INTO stok_hareketleri (hareket_id, urun_id, miktar, hareket_tarihi, hareket_tipi) VALUES 
 (1, 20, '2023-01-01', 'Giriş'),
 (2, 15, '2023-01-02', 'Giriş'),
+
+UPDATE stok_hareketleri
+SET miktar = new_miktar, hareket_tipi = new_hareket_tipi
+WHERE hareket_id = specific_hareket_id;
+
+DELETE FROM stok_hareketleri
+WHERE hareket_id = specific_hareket_id;
+
 ```
